@@ -29,7 +29,6 @@ app.get("/oauth-callback", ({ query: { code } }, res) => {
       redirect_uri: process.env.CALLBACK_URL,
     },
   };
-  const opts = { headers: { accept: "application/json" } };
   axios
     .post("https://launchpad.37signals.com/authorization/token", {}, config)
     .then((_res) => _res.data.access_token)
